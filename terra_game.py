@@ -14,10 +14,10 @@ running = True
 ######## TEST ZONE ########
 
 #make a tiled background
-background = make_background()
+
 
 #############################
-
+background = make_background()
 
 while running:
     # poll for events

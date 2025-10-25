@@ -8,11 +8,16 @@ running = True
 
 def make_background():
     #making tiled background (EXCEPT IM SPACE SO I DONT HAVE TO RAHHHHHHHHHHH)
-    space_location='Backgrounds_SS/blue.png'
+    space_location='assets/Backgrounds_SS/blue.png'
     space_surface=pygame.image.load(space_location)
 
-    #sand_top_a_location='assets/images/terrain_sand_top_a.png'
-    #sand_top_a=pygame.image.load(sand_top_a_location)
+    blue_planet_location='assets/Planets/planet07.png'
+    blue_planet_surface=pygame.image.load(blue_planet_location)
+    blue_planet_surface=pygame.transform.rotozoom(blue_planet_surface,0,.75)
+
+    brown_planet_location='assets/Planets/planet05.png'
+    brown_planet_surface=pygame.image.load(brown_planet_location)
+    brown_planet_surface=pygame.transform.rotozoom(brown_planet_surface,0,.25)
 
     #seaweed_a_location='assets/images/seaweed_green_a.png'
     #seaweed_tile=pygame.image.load(seaweed_a_location)
@@ -43,6 +48,8 @@ def make_background():
         #blit sewaeed
         #background.blit(seaweed_tile,(x,y))
     background.blit(space_surface,(0,0))
+    background.blit(brown_planet_surface,(0,0))
+    background.blit(blue_planet_surface,(WIDTH//2,HEIGHT//2))
     #return backgroudn surface
     return background
 

@@ -4,10 +4,10 @@ from util_params import *
 from util_background import *
 from player import Player
 from enemy import Enemy
+from score import *
 
 # pygame setup
 pygame.init()
-
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
@@ -16,10 +16,16 @@ running = True
 ######## TEST ZONE ########
 
 #make a tiled background
-player=Player()
-enemy=Enemy()
+
 #############################
+title=Terra_text()
+
+player=Player()
+
 background = make_background()
+enemy_group=pygame.sprite.Group()
+for i in range(10):
+    enemy_group.add(Enemy(randint(0,WIDTH),100))
 
 while running:
     # poll for events
@@ -29,13 +35,19 @@ while running:
             running = False
         player.check_event(event)
     
-    player.update()
+    
 
-    # fill the screen with a color to wipe away anything from last frame
-    #screen.fill("purple")
+    player.update()
+    enemy_group.update()
+    #make background
     screen.blit(background,(0,0))
-    # RENDER YOUR GAME HERE
+
+    title.update()
+    #title.update_score(player.score)
+    title.draw(screen)
+    # put in characters
     player.draw(screen)
+    enemy_group.draw(screen)
     # flip() the display to put your work on screen
     pygame.display.flip()
 

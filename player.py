@@ -4,7 +4,7 @@ from util_background import *
 from random import randint
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x=100, y=HEIGHT*(4/5)):
+    def __init__(self, x=WIDTH/2, y=HEIGHT*(9/10)):
         pygame.sprite.Sprite.__init__(self)
         self.x=x
         self.y=y
@@ -13,9 +13,10 @@ class Player(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
         self.vx=0
         self.vy=0
+        self.score=0
 
     def update(self): 
-        #want to fix so that palyer only moves when key is held down, 
+        #want to fix so that player only moves when key is held down, 
         #when key is lifted player stops so transition between moving directions is smoother
         self.x+=self.vx
         self.y+=self.vy
@@ -24,9 +25,11 @@ class Player(pygame.sprite.Sprite):
     def check_event(self,event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
-                self.vx += -2
+                self.vx += -3
             if event.key == pygame.K_d:
-                self.vx += 2
+                self.vx += 3
+            #if event.key ==pygame.K_SPACE
+
 
     def draw(self, screen):
         screen.blit(self.image,self.rect)

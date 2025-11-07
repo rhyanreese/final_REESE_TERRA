@@ -15,14 +15,12 @@ running = True
 
 ######## TEST ZONE ########
 
-#make a tiled background
 
 #############################
 title=Terra_text()
-
 player=Player()
-
 background = make_background()
+
 enemy_group=pygame.sprite.Group()
 for i in range(10):
     enemy_group.add(Enemy(randint(0,WIDTH),100))
@@ -35,8 +33,6 @@ while running:
             running = False
         player.check_event(event)
     
-    
-
     player.update()
     enemy_group.update()
     #make background

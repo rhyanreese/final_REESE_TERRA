@@ -8,10 +8,11 @@ clock = pygame.time.Clock()
 running = True
 
 def make_background():
-    #making tiled background (EXCEPT IM SPACE SO I DONT HAVE TO RAHHHHHHHHHHH)
+    #making background 
     space_location='assets/Backgrounds_SS/blue.png'
     space_surface=pygame.image.load(space_location)
 
+    #planets info
     blue_planet_location='assets/Planets/planet07.png'
     blue_planet_surface=pygame.image.load(blue_planet_location)
     blue_planet_surface=pygame.transform.rotozoom(blue_planet_surface,0,.75)
@@ -20,6 +21,7 @@ def make_background():
     brown_planet_surface=pygame.image.load(brown_planet_location)
     brown_planet_surface=pygame.transform.rotozoom(brown_planet_surface,0,.25)
 
+    #extra stars
     star_assets=['assets/SS_Parts/Effects/star1.png', 
                  'assets/SS_Parts/Effects/star2.png', 
                  'assets/SS_Parts/Effects/star3.png']
@@ -38,7 +40,7 @@ def make_background():
         for y in range(0,HEIGHT,tile_height):
             background.blit(space_surface,(x,y))
     
-    #randomly place seaweed
+    #randomly place stars
     num_stars=40
     for i in range(num_stars):
         x=randint(0,WIDTH)

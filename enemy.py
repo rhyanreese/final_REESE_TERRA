@@ -30,9 +30,9 @@ class Enemy(pygame.sprite.Sprite):
         self.x+=self.vx
         self.rect.center=(self.x,self.y)
 
-        collision=pygame.sprite.spritecollide(self,0)
-        if collision:
-            self.x+=10
+        #collision=pygame.sprite.spritecollide(self,0)
+        #if collision:
+            #self.kill()
 
     def draw(self,screen):
         screen.blit(self.image, self.rect)

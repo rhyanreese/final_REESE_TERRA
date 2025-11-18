@@ -21,7 +21,7 @@ running = True
 title=Terra_text()
 player=Player() 
 background = make_background()
-go_background=make_gameover()
+#go_background=make_gameover()
 
 #new_laser=Laser(player.rect.midtop)
 
@@ -46,10 +46,10 @@ while running:
     #laser_group.update()
     title.update()
     #title.update_score(player.score)
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_q:
-            screen.blit(go_background, (WIDTH//2, HEIGHT//2))
-            print('gameover')
+    #if event.type == pygame.KEYDOWN:
+        #if event.key == pygame.K_q:
+            #screen.blit(go_background, (WIDTH//2, HEIGHT//2))
+            #print('gameover')
    
 
     #draw game
@@ -58,8 +58,6 @@ while running:
     player.draw(screen)
     #laser_group.draw(screen)
     enemy_group.draw(screen)   
-
-
     
     # flip() the display to put your work on screen
     pygame.display.flip()
